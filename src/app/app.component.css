@@ -9,16 +9,29 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px;
-  padding: 10px;
-  border: 2px solid rgb(148, 36, 24);
-  background-color: rgb(196, 102, 25);
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  padding: 20px;
+  border: 5px solid rgb(7, 1, 0);
+  border-radius: 15px;
+  background-image: url(../assets/wood.jpg);
 }
 .grid-item {
   background-color: rgb(51, 185, 17);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  font-size: 80px;
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  font-size: 70px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  display: grid;
+}
+
+.grid-item-checked {
+  background-color: rgb(51, 185, 17);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  font-size: 75px;
   margin: 0;
   text-align: center;
   cursor: pointer;
@@ -29,9 +42,71 @@
   background-color: greenyellow;
 }
 
+.onlyHover {
+  display: none;
+}
+
+.grid-item:hover .onlyHover {
+  display: block;
+  opacity: 30%;
+}
+
 h1 {
   margin: 0;
   align-self: center;
 }
 
+.result, .draw {
+  color: white;
+  font-size: 2rem;
+}
 
+.modal {
+  width: 400px;
+  height: 200px;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  position: absolute;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  box-shadow: 5px 10px 18px #080000;
+  font-weight: bold;
+}
+
+button {
+  width: 150px;
+  height: 30px;
+  justify-self: center;
+  border-style: none;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: rgb(0, 5, 0);
+  color: white;
+  border: 2px solid white;
+}
+
+.title {
+  color: white;
+  margin: 0;
+  font-size: 5rem;
+  text-align: center;
+  font-family: 'Calligraffitti', cursive;
+}
+
+.turn {
+  color: white;
+  font-size: 2rem;
+  font-style:italic;
+  margin-top: 1rem;
+}
+
+strong {
+  font-style: normal;
+}
