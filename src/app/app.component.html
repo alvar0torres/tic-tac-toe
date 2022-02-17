@@ -1,42 +1,5 @@
 <section class="page_section">
-  <section class="board_section">
-    <h1 class="title">Tic Tac Toe</h1>
-    <div class="grid-container">
-      <div (click)="onMove(1)" [ngClass]="{'grid-item': moves.row1[0] === '', 'grid-item-checked': moves.row1[0] !== ''}">
-        <h1>{{ moves.row1[0] }}<span *ngIf="moves.row1[0] === ''" [ngClass]="{'onlyHover': moves.row1[0] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(2)" [ngClass]="{'grid-item': moves.row1[1] === '', 'grid-item-checked': moves.row1[1] !== ''}">
-        <h1>{{ moves.row1[1] }}<span *ngIf="moves.row1[1] === ''" [ngClass]="{'onlyHover': moves.row1[1] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(3)" [ngClass]="{'grid-item': moves.row1[2] === '', 'grid-item-checked': moves.row1[2] !== ''}">
-        <h1>{{ moves.row1[2] }}<span *ngIf="moves.row1[2] === ''" [ngClass]="{'onlyHover': moves.row1[2] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(4)" [ngClass]="{'grid-item': moves.row2[0] === '', 'grid-item-checked': moves.row2[0] !== ''}">
-        <h1>{{ moves.row2[0] }}<span *ngIf="moves.row2[0] === ''" [ngClass]="{'onlyHover': moves.row2[0] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(5)" [ngClass]="{'grid-item': moves.row2[1] === '', 'grid-item-checked': moves.row2[1] !== ''}">
-        <h1>{{ moves.row2[1] }}<span *ngIf="moves.row2[1] === ''" [ngClass]="{'onlyHover': moves.row2[1] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(6)" [ngClass]="{'grid-item': moves.row2[2] === '', 'grid-item-checked': moves.row2[2] !== ''}">
-        <h1>{{ moves.row2[2] }}<span *ngIf="moves.row2[2] === ''" [ngClass]="{'onlyHover': moves.row2[2] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(7)" [ngClass]="{'grid-item': moves.row3[0] === '', 'grid-item-checked': moves.row3[0] !== ''}">
-        <h1>{{ moves.row3[0] }}<span *ngIf="moves.row3[0] === ''" [ngClass]="{'onlyHover': moves.row3[0] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(8)" [ngClass]="{'grid-item': moves.row3[1] === '', 'grid-item-checked': moves.row3[1] !== ''}">
-        <h1>{{ moves.row3[1] }}<span *ngIf="moves.row3[1] === ''" [ngClass]="{'onlyHover': moves.row3[1] === ''}">{{ player }}</span></h1>
-      </div>
-      <div (click)="onMove(9)" [ngClass]="{'grid-item': moves.row3[2] === '', 'grid-item-checked': moves.row3[2] !== ''}">
-        <h1>{{ moves.row3[2] }}<span *ngIf="moves.row3[2] === ''" [ngClass]="{'onlyHover': moves.row3[2] === ''}">{{ player }}</span></h1>
-      </div>
-    </div>
-    <div class="turn"><strong>Turn: </strong>Player {{ player }}</div>
-  </section>
-  <div *ngIf="endGame" class="modal">
-    <div *ngIf="winner != ''" class="result">
-      {{ winner }} wins!
-    </div>
-    <div class="draw" *ngIf="winner === ''">Draw - Nobody wins</div>
-    <button (click)="newGame()">New Game</button>
-  </div>
+  <app-board></app-board>
+  <app-no-winner-modal *ngIf="(noWinner$ | async) === true" class="modal"></app-no-winner-modal>
+  <app-winner-modal *ngIf="(winner$ | async) !== ''" class="modal"></app-winner-modal>
 </section>

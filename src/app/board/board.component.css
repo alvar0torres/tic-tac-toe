@@ -1,0 +1,68 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px 150px;
+  padding: 20px;
+  border: 5px solid rgb(7, 1, 0);
+  border-radius: 15px;
+  background-image: url(../../assets/wood.jpg);
+}
+.grid-item {
+  background-color: rgb(51, 185, 17);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  font-size: 70px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  display: grid;
+}
+
+.grid-item-checked {
+  background-color: rgb(51, 185, 17);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  font-size: 75px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  display: grid;
+}
+
+.grid-item:hover {
+  background-color: greenyellow;
+}
+
+.onlyHover {
+  display: none;
+}
+
+.grid-item:hover .onlyHover {
+  display: block;
+  opacity: 30%;
+}
+
+h1 {
+  margin: 0;
+  align-self: center;
+}
+
+.title {
+  color: white;
+  margin: 0;
+  font-size: 5rem;
+  text-align: center;
+  font-family: 'Calligraffitti', cursive;
+}
+
+.turn {
+  color: white;
+  font-size: 2rem;
+  font-style:italic;
+  margin-top: 1rem;
+}
+
+strong {
+  font-style: normal;
+}
