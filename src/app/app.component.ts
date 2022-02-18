@@ -10,12 +10,14 @@ import { BoardService } from './board/board.service';
 export class AppComponent implements OnInit {
   noWinner$: Observable<boolean>;
   winner$: Observable<string>;
+  start$: Observable<boolean>;
 
   constructor(private boardService: BoardService) {}
 
   ngOnInit(): void {
       this.noWinner$ = this.boardService.noWinnerSubject;
       this.winner$ = this.boardService.winnerSubject;
+      this.start$ = this.boardService.startSubject;
   }
 
 }

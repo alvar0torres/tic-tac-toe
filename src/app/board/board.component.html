@@ -29,5 +29,5 @@
       <h1>{{ moves.row3[2] }}<span *ngIf="moves.row3[2] === ''" [ngClass]="{'onlyHover': moves.row3[2] === ''}">{{ player }}</span></h1>
     </div>
   </div>
-  <div class="turn"><strong>Turn: </strong>Player {{ player }}</div>
+  <div [ngClass]="{'turn': (endGame$ | async) === false && currentTurnPlayer, 'turnInvisible': (endGame$ | async) === true || !currentTurnPlayer}"><strong>Turn: </strong>{{ currentTurnPlayer }}</div>
 </section>

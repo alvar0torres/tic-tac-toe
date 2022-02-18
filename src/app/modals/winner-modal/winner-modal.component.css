@@ -26,6 +26,8 @@ button {
   border: 2px solid black;
   cursor: pointer;
   font-weight: bold;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
 }
 
 button:hover {

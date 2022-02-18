@@ -1,0 +1,32 @@
+<div class="modal">
+  <div class="info">Enter player names:</div>
+  <form (ngSubmit)="onAddPlayers(namesForm)" #namesForm="ngForm" ngNativeValidate>
+    <div>
+      <label for="player1">Player 1</label>
+      <input
+        ngModel
+        name="player1"
+        id="player1"
+        type="text"
+        autofocus
+        maxlength="12"
+        required
+      />
+    </div>
+    <div>
+      <label for="player2">Player 2</label>
+      <input
+        ngModel
+        name="player2"
+        id="player2"
+        type="text"
+        maxlength="12"
+        required
+      />
+    </div>
+    <div>
+      <button type="submit">Start Game</button>
+      <button (click)="onSkip()" type="button">Skip</button>
+    </div>
+  </form>
+</div>

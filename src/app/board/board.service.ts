@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
 export interface Moves {
@@ -19,23 +20,43 @@ export const initialBoard: Moves = {
 })
 export class BoardService {
   counter: number = 1;
-  endGame: boolean = false;
   moves: Moves = initialBoard;
+  player1: string;
 
+  startSubject = new BehaviorSubject<boolean>(true);
   playerSubject = new BehaviorSubject<string>('X');
   movesSubject = new BehaviorSubject<Moves>(initialBoard);
   winnerSubject = new BehaviorSubject<string>('');
   noWinnerSubject = new BehaviorSubject<boolean>(false);
+  player1Subject = new BehaviorSubject<string>("");
+  player2Subject = new BehaviorSubject<string>("");
+  endGameSubject = new BehaviorSubject<boolean>(false);
 
   constructor() {}
 
+  onAddPlayers(namesForm: NgForm) {
+    this.player1Subject.next(namesForm.value.player1);
+    this.player2Subject.next(namesForm.value.player2);
+    this.startSubject.next(false);
+    this.player1 = this.player1Subject.value;
+  }
+
   newGame() {
     this.playerSubject.next('X');
-    this.endGame = false;
+    this.endGameSubject.next(false);
     this.winnerSubject.next('');
     this.noWinnerSubject.next(false);
     this.counter = 1;
+    this.player1Subject.next(this.player1);
+    this.player1Subject.next(this.player1);
     this.cleanTable();
+  }
+
+  onSkip() {
+    this.player1Subject.next('X');
+    this.player2Subject.next('O');
+    this.startSubject.next(false);
+    this.player1 = this.player1Subject.value;
   }
 
   cleanTable() {
@@ -68,33 +89,34 @@ export class BoardService {
         this.moves.row2[1] === player &&
         this.moves.row3[0] === player)
     ) {
-      this.winnerSubject.next(player);
+      this.winnerSubject.next(player === "X" ? this.player1Subject.value : this.player2Subject.value);
       console.log('the winner is ' + player);
-      this.endGame = true;
+      this.endGameSubject.next(true);
       return;
     }
 
     if (this.counter < 9) {
       this.counter++;
     } else {
-      this.endGame = true;
+      this.endGameSubject.next(true);
       this.noWinnerSubject.next(true);
       console.log('the winner is nobody');
     }
   }
 
   changePlayer() {
-    if (this.endGame === true) {
+    if (this.endGameSubject.value === true) {
       return;
     } else {
-      return this.playerSubject.next(
+      this.playerSubject.next(
         this.playerSubject.value === 'X' ? 'O' : 'X'
       );
+
     }
   }
 
   onMove(move: number) {
-    if (this.endGame === true) {
+    if (this.endGameSubject.value === true) {
       return;
     }
     if (move === 1) {

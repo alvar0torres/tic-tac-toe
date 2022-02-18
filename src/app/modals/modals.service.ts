@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BoardService } from '../board/board.service';
 
 @Injectable({
@@ -10,6 +11,16 @@ export class ModalService {
 
   newGame(){
     this.boardService.newGame();
+  }
+
+  onAddPlayers(namesForm: NgForm) {
+    console.log(namesForm.value.player1);
+    console.log(namesForm.value.player2);
+    this.boardService.onAddPlayers(namesForm);
+  }
+
+  onSkip() {
+    this.boardService.onSkip();
   }
 
 }

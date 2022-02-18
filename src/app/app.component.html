@@ -2,4 +2,5 @@
   <app-board></app-board>
   <app-no-winner-modal *ngIf="(noWinner$ | async) === true" class="modal"></app-no-winner-modal>
   <app-winner-modal *ngIf="(winner$ | async) !== ''" class="modal"></app-winner-modal>
+  <app-names-modal *ngIf="(start$ | async) === true" class="modal"></app-names-modal>
 </section>

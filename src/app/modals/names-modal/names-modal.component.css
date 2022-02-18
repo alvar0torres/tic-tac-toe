@@ -1,4 +1,4 @@
-.draw {
+.info {
   color: white;
   font-size: 2rem;
 }
@@ -19,7 +19,8 @@
 }
 
 button {
-  width: 150px;
+  width: 110px;
+  margin: 0.5rem;
   height: 30px;
   justify-self: center;
   border-style: none;
@@ -34,4 +35,25 @@ button:hover {
   background-color: rgb(0, 5, 0);
   color: white;
   border: 2px solid white;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+
+label {
+  margin-right: 1rem;
+  color: white;
+}
+
+input {
+  width: 5rem;
+  background-color: transparent;
+  border-style: none;
+  border: 1px solid white;
+  color: white;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 0.95rem;
 }
