@@ -18,6 +18,12 @@
   font-weight: bold;
 }
 
+@media (max-width: 40rem) {
+  .modal {
+    max-width: 350px;
+  }
+}
+
 button {
   width: 150px;
   height: 30px;

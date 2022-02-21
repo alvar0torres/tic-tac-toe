@@ -13,6 +13,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   player1: string;
   player2: string;
   endGame$: Observable<boolean>;
+  start: boolean;
 
   currentTurnPlayer: string;
 
@@ -32,9 +33,15 @@ export class BoardComponent implements OnInit, OnDestroy {
     this.player2Sub = this.boardService.player2Subject.subscribe(
       (name) => (this.player2 = name)
     );
+    this.boardService.startSubject.subscribe(
+      value => this.start = value
+    )
   }
 
   onMove(number: number) {
+    if (this.start === true) {
+      return;
+    }
     this.boardService.onMove(number);
     this.currentTurnPlayer =
       this.currentTurnPlayer === this.player1 ? this.player2 : this.player1;

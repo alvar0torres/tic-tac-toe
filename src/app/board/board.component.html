@@ -28,6 +28,7 @@
     <div (click)="onMove(9)" [ngClass]="{'grid-item': moves.row3[2] === '', 'grid-item-checked': moves.row3[2] !== ''}">
       <h1>{{ moves.row3[2] }}<span *ngIf="moves.row3[2] === ''" [ngClass]="{'onlyHover': moves.row3[2] === ''}">{{ player }}</span></h1>
     </div>
+    <div class="signature">By <a target="_blank" href="http://github.com/alvar0torres">alvar0torres</a></div>
   </div>
   <div [ngClass]="{'turn': (endGame$ | async) === false && currentTurnPlayer, 'turnInvisible': (endGame$ | async) === true || !currentTurnPlayer}"><strong>Turn: </strong>{{ currentTurnPlayer }}</div>
 </section>
