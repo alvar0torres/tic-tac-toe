@@ -9,16 +9,7 @@
 .modal {
   width: 400px;
   height: 200px;
-  border: 2px solid white;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
   position: absolute;
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  box-shadow: 5px 10px 18px #080000;
-  font-weight: bold;
 }
 
 @media (max-width: 40rem) {

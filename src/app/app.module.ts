@@ -7,6 +7,7 @@ import { BoardComponent } from './board/board.component';
 import { NamesModalComponent } from './modals/names-modal/names-modal.component';
 import { NoWinnerModalComponent } from './modals/no-winner-modal/no-winner-modal.component';
 import { WinnerModalComponent } from './modals/winner-modal/winner-modal.component';
+import { StartModalComponent } from './modals/start-modal/start-modal.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { WinnerModalComponent } from './modals/winner-modal/winner-modal.compone
     NoWinnerModalComponent,
     BoardComponent,
     WinnerModalComponent,
-    NamesModalComponent
+    NamesModalComponent,
+    StartModalComponent,
   ],
   imports: [
     BrowserModule,
